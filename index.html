@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculadora de Rescisão de Estágio conforme Lei 11.788/2008.">
+  <title>Calculadora de Rescisão de Estágio | Lei 11.788/2008</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>⚖️ Calculadora de Rescisão de Estágio</h1>
+    <p>Conforme Lei nº 11.788/2008. Ferramenta para Gestores, Coordenadores e Assistentes de RH.</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>📝 Dados do Estágio</h2>
+      <form id="calcForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="bolsa">Valor da Bolsa-Auxílio Mensal (R$)</label>
+            <input type="number" id="bolsa" placeholder="Ex: 1200.00" step="0.01" min="0" required>
+          </div>
+          <div class="form-group">
+            <label for="meses">Total de Meses Trabalhados</label>
+            <input type="number" id="meses" placeholder="Ex: 6" min="1" max="24" required>
+          </div>
+          <div class="form-group">
+            <label for="diasUltimo">Dias Trabalhados no Último Mês</label>
+            <input type="number" id="diasUltimo" placeholder="Ex: 15" min="1" max="30" required>
+          </div>
+          <div class="form-group">
+            <label for="recessoGo">Recesso Gozado (dias)</label>
+            <input type="number" id="recessoGo" placeholder="0" min="0" max="30" value="0">
+          </div>
+        </div>
+        <button type="submit" class="btn">🧮 Calcular Rescisão</button>
+      </form>
+    </div>
+
+    <div id="resultados" class="card results">
+      <h2>💰 Resultado do Cálculo</h2>
+      <div id="detalhes"></div>
+      <div class="result-row total-row">
+        <span class="result-label">Total Líquido a Receber</span>
+        <span class="result-value" id="totalFinal">R$ 0,00</span>
+      </div>
+
+      <div class="notes">
+        <strong>📌 Notas Importantes (Lei 11.788/2008):</strong>
+        <ul>
+          <li>Bolsa proporcional: Dias trabalhados no último mês.</li>
+          <li>Recesso remunerado: 2,5 dias por mês trabalhado ou fração ≥ 15 dias.</li>
+          <li>Sem multas: Não há FGTS 40% nem aviso prévio.</li>
+          <li>Encargos: Sem INSS. Pode haver IRRF se aplicável.</li>
+          <li>Pagamento: Até o 5º dia útil do mês seguinte.</li>
+        </ul>
+      </div>
+
+      <div class="disclaimer">
+        ⚠️ <strong>Disclaimer Jurídico:</strong> Ferramenta de apoio à gestão de RH. Não substitui consultoria jurídica ou contábil especializada. Verifique convenções coletivas aplicáveis.
+      </div>
+
+      <div class="no-print" style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <button class="btn btn-secondary" onclick="window.print()">🖨️ Imprimir / PDF</button>
+        <button class="btn btn-secondary" onclick="limpar()">🔄 Novo Cálculo</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📖 Base Legal</h2>
+      <p>Conforme a Lei nº 11.788/2008, Art. 12 e Art. 13. Não se aplicam verbas trabalhistas CLT (FGTS, 13º, férias + 1/3).</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© <span id="ano"></span> Calculadora de Rescisão de Estágio | Uso corporativo</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
