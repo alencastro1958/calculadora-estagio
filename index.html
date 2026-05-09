@@ -16,7 +16,7 @@
   <div class="container">
     <div class="card">
       <h2>📝 Dados do Estágio</h2>
-      <form id="calcForm">
+      <form id="calcForm" novalidate>
         <div class="form-grid">
           <div class="form-group">
             <label for="bolsa">Valor da Bolsa-Auxílio Mensal (R$)</label>
@@ -35,6 +35,9 @@
             <input type="number" id="recessoGo" placeholder="0" min="0" max="30" value="0">
           </div>
         </div>
+
+        <div id="mensagensErro" class="mensagens-erro" aria-live="polite" aria-atomic="true"></div>
+
         <button type="submit" class="btn">🧮 Calcular Rescisão</button>
       </form>
     </div>
@@ -50,11 +53,11 @@
       <div class="notes">
         <strong>📌 Notas Importantes (Lei 11.788/2008):</strong>
         <ul>
-          <li>Bolsa proporcional: Dias trabalhados no último mês.</li>
+          <li>Bolsa proporcional: dias trabalhados no último mês.</li>
           <li>Recesso remunerado: 2,5 dias por mês trabalhado ou fração ≥ 15 dias.</li>
-          <li>Sem multas: Não há FGTS 40% nem aviso prévio.</li>
-          <li>Encargos: Sem INSS. Pode haver IRRF se aplicável.</li>
-          <li>Pagamento: Até o 5º dia útil do mês seguinte.</li>
+          <li>Sem multas: não há FGTS 40% nem aviso prévio.</li>
+          <li>Encargos: sem INSS. Pode haver IRRF se aplicável.</li>
+          <li>Pagamento: até o 5º dia útil do mês seguinte.</li>
         </ul>
       </div>
 
@@ -63,8 +66,8 @@
       </div>
 
       <div class="no-print" style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-        <button class="btn btn-secondary" onclick="window.print()">🖨️ Imprimir / PDF</button>
-        <button class="btn btn-secondary" onclick="limpar()">🔄 Novo Cálculo</button>
+        <button type="button" class="btn btn-secondary" onclick="window.print()">🖨️ Imprimir / PDF</button>
+        <button type="button" class="btn btn-secondary" onclick="limpar()">🔄 Novo Cálculo</button>
       </div>
     </div>
 
